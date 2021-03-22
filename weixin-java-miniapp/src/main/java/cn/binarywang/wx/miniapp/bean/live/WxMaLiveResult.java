@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.bean.live;
 
-import cn.binarywang.wx.miniapp.util.json.WxMaGsonBuilder;
+import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
@@ -105,10 +105,20 @@ public class WxMaLiveResult implements Serializable {
     private Integer screenType;
     @SerializedName("close_like")
     private Integer closeLike;
-    @SerializedName("closeGoods")
+    @SerializedName("close_goods")
     private Integer closeGoods;
     @SerializedName("close_comment")
     private Integer closeComment;
+    @SerializedName("close_kf")
+    private Integer closeKf;
+    @SerializedName("close_replay")
+    private Integer closeReplay;
+    @SerializedName("is_feeds_public")
+    private Integer isFeedsPublic;
+    @SerializedName("creater_openid")
+    private String createrOpenid;
+    @SerializedName("feeds_img")
+    private String feedsImg;
     private List<Goods> goods;
   }
 

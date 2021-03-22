@@ -288,6 +288,11 @@ public abstract class BaseWxMpServiceImpl<H, P> implements WxMpService, RequestH
   }
 
   @Override
+  public String post(WxMpApiUrl url, Object obj) throws WxErrorException {
+    return this.execute(SimplePostRequestExecutor.create(this), url, WxGsonBuilder.create().toJson(obj));
+  }
+
+  @Override
   public String post(WxMpApiUrl url, JsonObject jsonObject) throws WxErrorException {
     return this.post(url.getUrl(this.getWxMpConfigStorage()), jsonObject.toString());
   }
@@ -439,6 +444,7 @@ public abstract class BaseWxMpServiceImpl<H, P> implements WxMpService, RequestH
       if (this.configStorageMap == null) {
         this.setWxMpConfigStorage(configStorages);
       } else {
+        WxMpConfigStorageHolder.set(mpId);
         this.configStorageMap.put(mpId, configStorages);
       }
     }
